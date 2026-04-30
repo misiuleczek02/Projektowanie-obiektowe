@@ -1,0 +1,15 @@
+weather.db
+zadanie4.exe
+zadanie4
+.DS_Store
+*.db
+*.sqlite
+*.sqlite3
+bin/
+dist/
+.env
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
