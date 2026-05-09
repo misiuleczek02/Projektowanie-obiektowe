@@ -24,6 +24,17 @@ Oliwia Majewska
 
 ✅ 5. - Stworzenie panelu administracyjnego
 
+# Zadanie 3 Wzorce kreacyjne
+✅ 1. - Należy stworzyć jeden kontroler wraz z danymi wyświetlanymi z listy na endpoint’cie w formacie JSON - Kotlin + Spring Boot
+
+✅ 2. - Należy stworzyć klasę do autoryzacji (mock) jako Singleton w formie eager
+
+✅ 3. - Należy obsłużyć dane autoryzacji przekazywane przez użytkownika
+
+✅ 4. -  Należy wstrzyknąć singleton do głównej klasy via @Autowired lub kontruktor (constructor injection)
+
+✅ 5. -  Obok wersji Eager do wyboru powinna być wersja Singletona w wersji lazy
+
 # Zadanie 4 Wzorce strukturalne
 ✅ 1. - Należy stworzyć aplikację we frameworki echo w j. Go, która będzie miała kontroler Pogody, która pozwala na pobieranie danych o pogodzie (lub akcjach giełdowych)
 
