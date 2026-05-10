@@ -70,5 +70,3 @@ CodeQL wykrył **4 potencjalne problemy bezpieczeństwa** w projekcie Express.js
 - 1 niski (DoS)
 
 Wszystkie problemy zostały naprawione zgodnie z najlepszymi praktykami bezpieczeństwa.
-
-> Test push: aktualizacja dokumentacji do weryfikacji GitHub Actions.

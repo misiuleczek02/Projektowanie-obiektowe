@@ -1,136 +1,94 @@
 # Zadanie 6 - Podsumowanie wykonania
 
-## ✅ Wykonane zadania
+## Wykonane zadania
 
-### 3.0 ✅ Konfiguracja Husky + lint-staged
+### 3.0 Konfiguracja Husky + lint-staged
 **Projekty:** `projects/js-projects/frontend` i `projects/js-projects/backend`
 
-**Zaimplementowane:**
 - Zainstalowano `husky` i `lint-staged`
 - Skonfigurowano hook `pre-commit` uruchamiający lint-staged
 - Dodano sekcję `lint-staged` w `package.json` dla obu projektów
 - Hook uruchamia ESLint z auto-fix dla plików JS/TS/JSX
 
-**Pliki zmienione:**
-- `projects/js-projects/frontend/package.json`
-- `projects/js-projects/frontend/.husky/pre-commit`
-- `projects/js-projects/backend/package.json`
-- `projects/js-projects/backend/.husky/pre-commit`
-
-### 3.5 ✅ Eliminacja bugów w Sonarze (aplikacja kliencka)
+### 3.5 Eliminacja bugów w aplikacji klienckiej
 **Projekt:** `projects/js-projects/frontend` (React TypeScript)
 
-**Naprawione błędy:**
-- Dodano walidację ilości produktów w koszyku (1-99)
-- Dodano walidację formatu karty kredytowej
-- Dodano walidację daty ważności karty
-- Dodano walidację CVV (3-4 cyfry)
-- Dodano automatyczne formatowanie numeru karty (spacje co 4 cyfry)
-- Poprawiono obsługę błędów w kontekście koszyka
+- Walidacja ilości produktów w koszyku (1-99)
+- Walidacja formatu numeru karty kredytowej, daty ważności i CVV
+- Automatyczne formatowanie numeru karty (spacje co 4 cyfry)
+- Poprawiona obsługa błędów w kontekście koszyka
 
-**Pliki zmienione:**
-- `src/components/Cart.tsx`
-- `src/components/Payments.tsx`
-- `src/context/CartContext.tsx`
+Pliki: `src/components/Cart.tsx`, `src/components/Payments.tsx`, `src/context/CartContext.tsx`
 
-### 4.0 ✅ Skanowanie projektu open source narzędziem CodeQL
+### 4.0 Skanowanie projektu open source narzędziem CodeQL
 **Projekt:** Express.js (https://github.com/expressjs/express)
 
-**Wyniki analizy:**
-- Przeskanowano popularny framework Express.js
-- Zidentyfikowano 4 potencjalne problemy bezpieczeństwa:
-  - XSS (High)
-  - SQL Injection (Medium)
-  - Path Traversal (Medium)
-  - DoS (Low)
-- Zaproponowano naprawy dla wszystkich problemów
+Zidentyfikowano 4 potencjalne problemy bezpieczeństwa: XSS (High), SQL Injection (Medium), Path Traversal (Medium), DoS (Low). Wszystkie z przykładowymi naprawami.
 
-**Dokumentacja:** `codeql-scan/CODEQL_ANALYSIS.md`
+Dokumentacja: [`codeql-scan/CODEQL_ANALYSIS.md`](codeql-scan/CODEQL_ANALYSIS.md)
 
-### 4.5 ✅ Usunięcie Code Smells + dodanie badge Sonar
+### 4.5 Usunięcie Code Smells + badge SonarCloud
 **Projekty:** Kotlin, Go, JavaScript
 
-**Naprawione Code Smells w Kotlin:**
-- Dodano walidację w konstruktorze `AuthRequest`
-- Dodano logowanie w kontrolerze
-- Dodano obsługę błędów
-- Zaimplementowano hashowanie haseł (SHA-256)
+- **Kotlin:** walidacja w konstruktorze `AuthRequest`, logowanie w kontrolerze, hashowanie haseł (SHA-256)
+- **Go:** lepsze logowanie błędów, walidacja długości lokalizacji, limit max 10 lokalizacji
+- **JavaScript:** walidacja danych wejściowych, lepsze komunikaty błędów, bezpieczeństwo płatności
 
-**Naprawione Code Smells w Go:**
-- Dodano lepsze logowanie błędów
-- Dodano walidację długości lokalizacji (max 100 znaków)
-- Dodano limit maksymalnej liczby lokalizacji (10)
-- Poprawiono obsługę błędów i komunikaty
+Badge'e SonarCloud dodane do [`README.md`](README.md).
 
-**Naprawione Code Smells w JavaScript:**
-- Poprawiono walidację danych wejściowych
-- Dodano lepsze komunikaty błędów
-- Poprawiono bezpieczeństwo płatności
+### 5.0 GitHub Actions z CodeQL i SonarCloud
+**Workflowy** (w korzeniu repozytorium, w `.github/workflows/`):
+- `codeql-analysis.yml` - CodeQL dla JS, Java/Kotlin, Go (z kompilacją Kotlina przez Gradle)
+- `sonar-scan.yml` - SonarCloud Scanner z `projectBaseDir: Zadanie 6`
 
-**Badge Sonar dodany do:** `README.md`
+Oba workflowy uruchamiają się automatycznie na push i PR do `main`.
 
-### 5.0 ✅ Konfiguracja Github Actions z linterem oraz CodeQL
-**Workflows utworzone:**
-- `.github/workflows/codeql-analysis.yml` - CodeQL dla JS, Java/Kotlin, Go
-- `.github/workflows/sonar-scan.yml` - Sonar Scanner dla wszystkich projektów
-
-**Konfiguracja:**
-- Workflow CodeQL skanuje wszystkie języki używane w projektach
-- Workflow Sonar uruchamia analizę jakości kodu
-- Obydwa workflow uruchamiają się na push i PR do main
-
-## 📁 Struktura katalogów
+## Struktura katalogów
 
 ```
-Zadanie 6/
-├── .github/workflows/
+Projektowanie-obiektowe/
+├── .github/workflows/          # workflowy CI (na poziomie repo!)
 │   ├── codeql-analysis.yml
 │   └── sonar-scan.yml
-├── codeql-scan/
-│   ├── express/          # Express.js do analizy CodeQL
-│   └── CODEQL_ANALYSIS.md
-├── projects/             # Poprawione kopie projektów
-│   ├── js-projects/
-│   │   ├── backend/      # Express.js z Husky + poprawkami
-│   │   └── frontend/     # React z Husky + poprawkami bugów
-│   ├── kotlin-project/   # Spring Boot z poprawkami code smells
-│   └── go-project/       # Echo z poprawkami code smells
-├── husky-lint-staged-instructions.md
-├── README.md
-└── sonar-project.properties
+└── Zadanie 6/
+    ├── codeql-scan/
+    │   └── CODEQL_ANALYSIS.md  # analiza Express.js
+    ├── projects/               # poprawione kopie projektów
+    │   ├── kotlin-project/     # Spring Boot
+    │   ├── go-project/         # Echo
+    │   └── js-projects/
+    │       ├── backend/        # Express + Husky
+    │       └── frontend/       # React + Husky
+    ├── README.md
+    ├── ZADANIE_6_PODSUMOWANIE.md
+    └── sonar-project.properties
 ```
 
-## 🔧 Jak uruchomić
+## Konfiguracja SonarCloud
 
-1. **Husky + lint-staged:**
-   ```bash
-   cd projects/js-projects/frontend
-   npm install
-   npm run prepare  # uruchamia husky install
-   ```
+- **Organizacja:** `zadanie6`
+- **Project key:** `zadanie6_zadanie6`
+- **Main branch:** `main`
+- Wymagany sekret w GitHub: `SONAR_TOKEN`
 
-2. **Sonar Scan:**
-   - Skonfiguruj `SONAR_TOKEN` w GitHub Secrets
-   - Workflow uruchomi się automatycznie na push/PR
+## Jak uruchomić lokalnie
 
-3. **CodeQL:**
-   - Workflow uruchomi się automatycznie na push/PR
-   - Analizuje wszystkie języki w projektach
+**Husky + lint-staged (frontend):**
+```bash
+cd "Zadanie 6/projects/js-projects/frontend"
+npm install
+npm run prepare
+```
 
-## 📊 Rezultaty Sonar
+**Sonar / CodeQL** uruchamiają się automatycznie przy pushu na `main` poprzez GitHub Actions.
 
-Po uruchomieniu analizy Sonar oczekuje się:
-- **0 bugów** w aplikacji klienckiej
-- **0 code smells** w projektach Kotlin i Go
-- **Poprawiona jakość kodu** we wszystkich projektach
-
-## 🏆 Podsumowanie
+## Podsumowanie
 
 Wszystkie zadania z Zadania 6 zostały wykonane:
-- ✅ Husky + lint-staged skonfigurowane
-- ✅ Bugi w aplikacji klienckiej naprawione
-- ✅ Projekt open source przeskanowany CodeQL
-- ✅ Code smells usunięte + badge Sonar dodany
-- ✅ GitHub Actions skonfigurowane dla CI/CD
+- Husky + lint-staged skonfigurowane dla projektów JS
+- Bugi w aplikacji klienckiej naprawione
+- Projekt Express.js przeskanowany CodeQL z dokumentacją
+- Code smells usunięte w Kotlin/Go/JS, badge SonarCloud aktywny
+- GitHub Actions: SonarCloud + CodeQL działają zielono na `main`
 
-Rozwiązanie zachowuje oryginalne projekty bez zmian, a wszystkie poprawki są w katalogu `Zadanie 6/projects/`.
+Oryginalne projekty z `Zadanie 3`..`Zadanie 5` pozostały nienaruszone — wszystkie poprawki są w `Zadanie 6/projects/`.

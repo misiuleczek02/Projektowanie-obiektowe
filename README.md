@@ -56,3 +56,20 @@ Oliwia Majewska
 ✅ 4. - Należy przygotować konfigurację umożliwiającą uruchomienie aplikacji klienckiej oraz serwerowej w kontenerach Docker za pomocą docker-compose.
 
 ✅ 5. - Należy wykorzystać bibliotekę axios do komunikacji z serwerem oraz skonfigurować obsługę CORS, aby frontend mógł poprawnie komunikować się z backendem.
+
+# Zadanie 6 Jakość kodu i CI/CD
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=zadanie6_zadanie6&metric=alert_status)](https://sonarcloud.io/dashboard?id=zadanie6_zadanie6)
+[![CodeQL](https://github.com/misiuleczek02/Projektowanie-obiektowe/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/misiuleczek02/Projektowanie-obiektowe/actions/workflows/codeql-analysis.yml)
+
+✅ 3.0 - Konfiguracja Husky + lint-staged dla projektów JS (frontend i backend z `Zadanie 5`)
+
+✅ 3.5 - Eliminacja bugów w aplikacji klienckiej (walidacja koszyka, formularza płatności)
+
+✅ 4.0 - Skanowanie zewnętrznego projektu (Express.js) narzędziem CodeQL — opis w [`Zadanie 6/codeql-scan/CODEQL_ANALYSIS.md`](Zadanie%206/codeql-scan/CODEQL_ANALYSIS.md)
+
+✅ 4.5 - Usunięcie code smells w projektach Kotlin / Go / JS oraz dodanie badge'y SonarCloud
+
+✅ 5.0 - GitHub Actions z workflowami SonarCloud Scanner i CodeQL Analysis działającymi na każdym pushu/PR do `main`
+
+Szczegóły w [`Zadanie 6/README.md`](Zadanie%206/README.md) i [`Zadanie 6/ZADANIE_6_PODSUMOWANIE.md`](Zadanie%206/ZADANIE_6_PODSUMOWANIE.md).
