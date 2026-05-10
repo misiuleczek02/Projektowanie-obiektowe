@@ -35,6 +35,6 @@ jobs:
         with:
           organization: Zadanie6
           projectKey: zadanie6-zadanie6
-          projectBaseDir: .
+          projectBaseDir: Zadanie 6
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

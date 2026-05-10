@@ -24,17 +24,17 @@ jobs:
 
       - name: Build Kotlin project
         run: |
-          cd projects/kotlin-project
+          cd "Zadanie 6/projects/kotlin-project"
           ./gradlew clean build -x test
 
       - name: Build Go project
         run: |
-          cd projects/go-project
+          cd "Zadanie 6/projects/go-project"
           go test ./...
 
       - name: Install frontend dependencies
         run: |
-          cd projects/js-projects/frontend
+          cd "Zadanie 6/projects/js-projects/frontend"
           npm ci
 
       - name: Perform CodeQL analysis
