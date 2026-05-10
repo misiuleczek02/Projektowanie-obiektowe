@@ -31,10 +31,9 @@ jobs:
           go-version: '1.22'
 
       - name: Run Sonar Scanner
-        uses: sonarsource/sonarcloud-github-action@master
+        uses: SonarSource/sonarqube-scan-action@v5
         with:
-          organization: Zadanie6
-          projectKey: zadanie6-zadanie6
           projectBaseDir: Zadanie 6
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: https://sonarcloud.io
