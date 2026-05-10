@@ -36,7 +36,7 @@ jobs:
       - name: Install frontend dependencies
         run: |
           cd "Zadanie 6/projects/js-projects/frontend"
-          npm ci
+          npm install --no-audit --no-fund
 
       - name: Perform CodeQL analysis
         uses: github/codeql-action/analyze@v3
