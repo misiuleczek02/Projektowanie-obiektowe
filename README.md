@@ -57,19 +57,20 @@ Oliwia Majewska
 
 ✅ 5. - Należy wykorzystać bibliotekę axios do komunikacji z serwerem oraz skonfigurować obsługę CORS, aby frontend mógł poprawnie komunikować się z backendem.
 
-# Zadanie 6 Jakość kodu i CI/CD
+# Zadanie 6 Zapaszki
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=zadanie6_zadanie6&metric=alert_status)](https://sonarcloud.io/dashboard?id=zadanie6_zadanie6)
 [![CodeQL](https://github.com/misiuleczek02/Projektowanie-obiektowe/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/misiuleczek02/Projektowanie-obiektowe/actions/workflows/codeql-analysis.yml)
 
-✅ 3.0 - Konfiguracja Husky + lint-staged dla projektów JS (frontend i backend z `Zadanie 5`)
+✅ 1. - Należy skonfigurować husky + lint-staged uruchamianie lintowania przed commitem
 
-✅ 3.5 - Eliminacja bugów w aplikacji klienckiej (walidacja koszyka, formularza płatności)
+✅ 2. - Należy wyeliminować wszystkie bugi w kodzie w Sonarze (kod aplikacji klienckiej)
 
-✅ 4.0 - Skanowanie zewnętrznego projektu (Express.js) narzędziem CodeQL — opis w [`Zadanie 6/codeql-scan/CODEQL_ANALYSIS.md`](Zadanie%206/codeql-scan/CODEQL_ANALYSIS.md)
+✅ 3. - Przeskanować oraz naprawić dowolny projekt open source narzędziem CodeQL https://codeql.github.com/
 
-✅ 4.5 - Usunięcie code smells w projektach Kotlin / Go / JS oraz dodanie badge'y SonarCloud
+✅ 4. - Należy usunąć problemy typu Code Smell w kodzie w Sonarze (kotlin, go, js). Należy dodać badge z Sonara
 
-✅ 5.0 - GitHub Actions z workflowami SonarCloud Scanner i CodeQL Analysis działającymi na każdym pushu/PR do `main`
+✅ 5. - Skonfigurować Github Actions z linterem oraz CodeQL
+
 
 Szczegóły w [`Zadanie 6/README.md`](Zadanie%206/README.md) i [`Zadanie 6/ZADANIE_6_PODSUMOWANIE.md`](Zadanie%206/ZADANIE_6_PODSUMOWANIE.md).
