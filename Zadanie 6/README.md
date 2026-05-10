@@ -4,10 +4,10 @@ Katalog zawiera wsparcie dla analiz i konfiguracji jakości kodu bez modyfikowan
 
 ## SonarCloud Badges
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=projektowanie_obiektowe&metric=alert_status)](https://sonarcloud.io/dashboard?id=projektowanie_obiektowe)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=projektowanie_obiektowe&metric=code_smells)](https://sonarcloud.io/dashboard?id=projektowanie_obiektowe)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=projektowanie_obiektowe&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=projektowanie_obiektowe)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=projektowanie_obiektowe&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=projektowanie_obiektowe)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=zadanie6-zadanie6&metric=alert_status)](https://sonarcloud.io/dashboard?id=zadanie6-zadanie6)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=zadanie6-zadanie6&metric=code_smells)](https://sonarcloud.io/dashboard?id=zadanie6-zadanie6)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=zadanie6-zadanie6&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=zadanie6-zadanie6)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=zadanie6-zadanie6&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=zadanie6-zadanie6)
 
 ## Projekty referencyjne
 - `Zadanie 3` - Kotlin / Spring Boot

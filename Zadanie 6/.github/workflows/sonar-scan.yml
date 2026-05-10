@@ -34,7 +34,7 @@ jobs:
         uses: sonarsource/sonarcloud-github-action@master
         with:
           organization: Zadanie6
-          projectKey: projektowanie_obiektowe
+          projectKey: zadanie6-zadanie6
           projectBaseDir: .
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
