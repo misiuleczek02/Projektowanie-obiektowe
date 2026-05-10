@@ -1,6 +1,6 @@
 # Zadanie 6 - Wsparcie dla istniejących projektów
 
-Ten katalog zawiera wsparcie dla analiz i konfiguracji jakości kodu bez modyfikowania istniejących projektów w `Zadanie 1`..`Zadanie 5`.
+Katalog zawiera wsparcie dla analiz i konfiguracji jakości kodu bez modyfikowania istniejących projektów w `Zadanie 1`..`Zadanie 5`.
 
 ## SonarCloud Badges
 
@@ -21,11 +21,6 @@ Ten katalog zawiera wsparcie dla analiz i konfiguracji jakości kodu bez modyfik
 - `sonar-project.properties` - konfiguracja Sonar do analizy źródeł w zadaniach
 - `husky-lint-staged-instructions.md` - instrukcja konfiguracji Husky + lint-staged dla istniejących projektów JS
 - `projects/` - poprawione kopie projektów z usuniętymi bugami i code smells
-
-## Zastosowanie
-1. Nie zmieniaj zawartości istniejących katalogów `Zadanie 1`..`Zadanie 5`.
-2. Użyj `Zadanie 6` jako warstwy konfiguracji i dokumentacji do wdrożenia.
-3. Możesz skopiować workflow do repozytorium głównego lub użyć go jako wzorca.
 
 ## Badge Sonar i CodeQL
 Użyj poniższych szablonów, gdy utworzysz projekt SonarCloud i GitHub Actions:
