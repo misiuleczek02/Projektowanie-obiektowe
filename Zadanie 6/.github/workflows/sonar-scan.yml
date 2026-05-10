@@ -31,14 +31,10 @@ jobs:
           go-version: '1.22'
 
       - name: Run Sonar Scanner
+        uses: sonarsource/sonarcloud-github-action@master
+        with:
+          organization: Zadanie6
+          projectKey: projektowanie_obiektowe
+          projectBaseDir: .
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: https://sonarcloud.io
-          SONAR_ORGANIZATION: Zadanie6
-        run: |
-          cd Zadanie\ 6
-          sonar-scanner \
-            -Dsonar.projectKey=projektowanie_obiektowe \
-            -Dsonar.organization=Zadanie6 \
-            -Dsonar.sources="projects/kotlin-project/src,projects/go-project,projects/js-projects/frontend/src,projects/js-projects/backend" \
-            -Dsonar.host.url=https://sonarcloud.io
