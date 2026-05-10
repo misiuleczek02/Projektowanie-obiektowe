@@ -1,0 +1,41 @@
+name: CodeQL Analysis
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      security-events: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript, go, java
+
+      - name: Build Kotlin project
+        run: |
+          cd projects/kotlin-project
+          ./gradlew clean build -x test
+
+      - name: Build Go project
+        run: |
+          cd projects/go-project
+          go test ./...
+
+      - name: Install frontend dependencies
+        run: |
+          cd projects/js-projects/frontend
+          npm ci
+
+      - name: Perform CodeQL analysis
+        uses: github/codeql-action/analyze@v3

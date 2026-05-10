@@ -1,0 +1,41 @@
+name: Sonar Scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  sonar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.22'
+
+      - name: Run Sonar Scanner
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          cd Zadanie 6
+          sonar-scanner \
+            -Dsonar.projectKey=projektowanie_obiektowe \
+            -Dsonar.sources="projects/kotlin-project/src,projects/go-project,projects/js-projects/frontend/src,projects/js-projects/backend" \
+            -Dsonar.host.url=https://sonarcloud.io
