@@ -74,3 +74,15 @@ Oliwia Majewska
 
 
 Szczegóły w [`Zadanie 6/README.md`](Zadanie%206/README.md) i [`Zadanie 6/ZADANIE_6_PODSUMOWANIE.md`](Zadanie%206/ZADANIE_6_PODSUMOWANIE.md).
+
+# Zadanie 7 
+
+✅ 1. - Przetestuj formularz rejestracji użytkownika pod kątem walidacji pól obowiązkowych oraz zachowania aplikacji po wprowadzeniu niepoprawnego formatu adresu e-mail.
+
+✅ 2. - Przeprowadź testy bezpieczeństwa typu Cross-Site Scripting (XSS), próbując wstrzyknąć złośliwy kod JavaScript w aplikacji z Reactem
+
+✅ 3. - Przetestuj działanie koszyka zakupowego przy jednoczesnym otwarciu aplikacji w kilku osobnych kartach tej samej przeglądarki sprawdzając spójność stanów zamówienia (aplikacja z zadania z React'em)
+
+✅ 4. - Do zadania z React'a należy dodać formularz logowania. Następnie przeprowadź testy podatności na ataki typu Cross-Site Request Forgery (CSRF), próbując wymusić nieautoryzowaną zmianę ustawień konta spreparowanym linkiem, podczas gdy użytkownik posiada aktywną sesję w innej karcie.
+
+✅ 5. - Stwórz scenariusz End-to-End w Playwright (minimum 50 asercji)
