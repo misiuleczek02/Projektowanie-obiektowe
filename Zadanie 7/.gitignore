@@ -1,0 +1,23 @@
+# Node
+**/node_modules/
+**/build/
+**/dist/
+**/.next/
+
+# Python
+**/__pycache__/
+**/.pytest_cache/
+**/.venv/
+**/venv/
+*.pyc
+
+# Playwright
+playwright-tests/playwright-report/
+playwright-tests/test-results/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
