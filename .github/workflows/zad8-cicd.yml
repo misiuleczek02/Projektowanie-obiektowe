@@ -165,6 +165,7 @@ jobs:
     steps:
       - name: Determine overall status
         id: status
+        working-directory: ${{ github.workspace }}
         run: |
           if [ "${{ needs.build.result }}" = "success" ] \
              && [ "${{ needs.regression-tests.result }}" = "success" ]; then
