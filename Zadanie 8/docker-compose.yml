@@ -1,0 +1,31 @@
+services:
+  backend:
+    image: ${IMAGE_BACKEND:-zad8-backend:local}
+    build:
+      context: ./app/backend
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+    expose:
+      - "5000"
+    restart: unless-stopped
+    networks:
+      - zad8
+
+  frontend:
+    image: ${IMAGE_FRONTEND:-zad8-frontend:local}
+    build:
+      context: ./app/frontend
+      args:
+        REACT_APP_API_URL: ""
+    ports:
+      - "${FRONTEND_PORT:-8080}:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - zad8
+
+networks:
+  zad8:
+    driver: bridge
