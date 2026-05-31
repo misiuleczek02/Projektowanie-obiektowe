@@ -21,3 +21,5 @@ playwright-tests/test-results/
 # OS
 .DS_Store
 Thumbs.db
+
+#push test
