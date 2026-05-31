@@ -1,0 +1,200 @@
+name: Zadanie 8 CI/CD
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Zadanie 8/**'
+      - '.github/workflows/zad8-cicd.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'Zadanie 8/**'
+      - '.github/workflows/zad8-cicd.yml'
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: 'Zadanie 8'
+
+jobs:
+  build:
+    name: Build (3.5)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build backend
+        working-directory: 'Zadanie 8/app/backend'
+        run: npm ci
+
+      - name: Build frontend
+        working-directory: 'Zadanie 8/app/frontend'
+        env:
+          CI: false
+        run: |
+          npm ci
+          npm run build
+
+      - name: Build Docker images
+        run: |
+          docker build -t zad8-backend:ci ./app/backend
+          docker build -t zad8-frontend:ci ./app/frontend
+
+      - name: Upload frontend build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build
+          path: 'Zadanie 8/app/frontend/build'
+          if-no-files-found: error
+
+  regression-tests:
+    name: Regression tests (5.0)
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Start application stack (Docker Compose)
+        run: docker compose up -d --build
+
+      - name: Wait for stack to be healthy
+        run: |
+          for i in $(seq 1 40); do
+            if curl -sf http://localhost:8080/ >/dev/null \
+               && curl -sf http://localhost:8080/api/health >/dev/null; then
+              echo "Stack is up after $i tries"
+              exit 0
+            fi
+            echo "waiting for stack... ($i)"
+            sleep 3
+          done
+          echo "::error::Stack did not become healthy in time"
+          docker compose logs
+          exit 1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Playwright
+        working-directory: 'Zadanie 8/playwright-tests'
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+
+      - name: Run regression (functional) tests
+        working-directory: 'Zadanie 8/playwright-tests'
+        env:
+          FRONTEND_URL: http://localhost:8080
+          BACKEND_URL: http://localhost:8080
+        run: npm test
+
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: 'Zadanie 8/playwright-tests/playwright-report'
+          if-no-files-found: ignore
+
+      - name: Stop stack
+        if: always()
+        run: docker compose down -v
+
+  deploy:
+    name: Deploy to GHCR (4.5)
+    needs: regression-tests
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Compute lowercase owner
+        id: vars
+        run: echo "owner=${GITHUB_REPOSITORY_OWNER,,}" >> "$GITHUB_OUTPUT"
+
+      - name: Build & push backend image
+        uses: docker/build-push-action@v6
+        with:
+          context: 'Zadanie 8/app/backend'
+          push: true
+          tags: |
+            ghcr.io/${{ steps.vars.outputs.owner }}/zad8-backend:latest
+            ghcr.io/${{ steps.vars.outputs.owner }}/zad8-backend:${{ github.sha }}
+
+      - name: Build & push frontend image
+        uses: docker/build-push-action@v6
+        with:
+          context: 'Zadanie 8/app/frontend'
+          push: true
+          tags: |
+            ghcr.io/${{ steps.vars.outputs.owner }}/zad8-frontend:latest
+            ghcr.io/${{ steps.vars.outputs.owner }}/zad8-frontend:${{ github.sha }}
+
+      - name: Deployment summary
+        run: |
+          {
+            echo "### Deployment do chmury (GHCR) zakonczony :rocket:"
+            echo ""
+            echo "- \`ghcr.io/${{ steps.vars.outputs.owner }}/zad8-backend:latest\`"
+            echo "- \`ghcr.io/${{ steps.vars.outputs.owner }}/zad8-frontend:latest\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  notify:
+    name: Email notification (4.0)
+    needs: [build, regression-tests, deploy]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Determine overall status
+        id: status
+        run: |
+          if [ "${{ needs.build.result }}" = "success" ] \
+             && [ "${{ needs.regression-tests.result }}" = "success" ]; then
+            echo "state=SUKCES" >> "$GITHUB_OUTPUT"
+          else
+            echo "state=NIEPOWODZENIE" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Send build notification email
+        uses: dawidd6/action-send-mail@v3
+        continue-on-error: true
+        with:
+          server_address: ${{ secrets.MAIL_SERVER || 'smtp.gmail.com' }}
+          server_port: ${{ secrets.MAIL_PORT || '465' }}
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          from: Zadanie 8 CI <${{ secrets.MAIL_USERNAME }}>
+          to: ${{ secrets.MAIL_TO }}
+          subject: "[Zadanie 8] Build ${{ steps.status.outputs.state }} - #${{ github.run_number }}"
+          body: |
+            Pipeline "Zadanie 8 CI/CD" zakonczyl sie ze statusem: ${{ steps.status.outputs.state }}
+
+            Repozytorium : ${{ github.repository }}
+            Branch/ref   : ${{ github.ref_name }}
+            Commit       : ${{ github.sha }}
+            Autor        : ${{ github.actor }}
+            Wyniki jobow:
+              - build (3.5)            : ${{ needs.build.result }}
+              - regression-tests (5.0) : ${{ needs.regression-tests.result }}
+              - deploy (4.5)           : ${{ needs.deploy.result }}
+
+            Szczegoly: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

@@ -86,3 +86,15 @@ Szczegóły w [`Zadanie 6/README.md`](Zadanie%206/README.md) i [`Zadanie 6/ZADAN
 ✅ 4. - Do zadania z React'a należy dodać formularz logowania. Następnie przeprowadź testy podatności na ataki typu Cross-Site Request Forgery (CSRF), próbując wymusić nieautoryzowaną zmianę ustawień konta spreparowanym linkiem, podczas gdy użytkownik posiada aktywną sesję w innej karcie.
 
 ✅ 5. - Stwórz scenariusz End-to-End w Playwright (minimum 50 asercji)
+
+# Zadanie 8
+
+✅ 1. - Należy stworzyć odpowiednie instancje po stronie chmury na dockerze
+
+✅ 2. - Stworzyć odpowiedni pipeline w Github Actions do budowania aplikacji
+
+✅ 3. - Dodać notyfikację mailową o zbudowaniu aplikacji
+
+✅ 4. - Dodać krok z deploymentem aplikacji serwerowej oraz klienckiej na chmurę
+
+✅ 5. - Dodać uruchomienie regresyjnych testów automatycznych (funkcjonalnych) jako krok w Actions
