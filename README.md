@@ -24,6 +24,8 @@ Oliwia Majewska
 
 ✅ 5. - Stworzenie panelu administracyjnego
 
+[commit 2](https://github.com/misiuleczek02/Projektowanie-obiektowe/commit/68d4886d501588a34bb52eee7a9542bfb93e7bce)
+
 # Zadanie 3 Wzorce kreacyjne
 ✅ 1. - Należy stworzyć jeden kontroler wraz z danymi wyświetlanymi z listy na endpoint’cie w formacie JSON - Kotlin + Spring Boot
 
