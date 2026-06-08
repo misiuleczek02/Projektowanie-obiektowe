@@ -39,6 +39,8 @@ Oliwia Majewska
 
 ✅ 5. -  Obok wersji Eager do wyboru powinna być wersja Singletona w wersji lazy
 
+[commit 3](https://github.com/misiuleczek02/Projektowanie-obiektowe/commit/e6ee5bcddc2b3e09d9e22e0b9f798734f2e78370)
+
 # Zadanie 4 Wzorce strukturalne
 ✅ 1. - Należy stworzyć aplikację we frameworki echo w j. Go, która będzie miała kontroler Pogody, która pozwala na pobieranie danych o pogodzie (lub akcjach giełdowych)
 
