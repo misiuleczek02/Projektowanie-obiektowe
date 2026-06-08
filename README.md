@@ -65,6 +65,8 @@ Oliwia Majewska
 
 ✅ 5. - Należy wykorzystać bibliotekę axios do komunikacji z serwerem oraz skonfigurować obsługę CORS, aby frontend mógł poprawnie komunikować się z backendem.
 
+[commit 5](https://github.com/misiuleczek02/Projektowanie-obiektowe/commit/960e37c2692f7e9d8911d1f226a80fba2baa317d)
+
 # Zadanie 6 Zapaszki
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=zadanie6_zadanie6&metric=alert_status)](https://sonarcloud.io/dashboard?id=zadanie6_zadanie6)
