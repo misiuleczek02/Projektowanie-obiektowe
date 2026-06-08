@@ -127,3 +127,5 @@ Szczegóły w [`Zadanie 6/README.md`](Zadanie%206/README.md) i [`Zadanie 6/ZADAN
 ✅ 4. -  Należy wykorzystać Redis do przechowywania danych
 
 [commit 9](https://github.com/misiuleczek02/Projektowanie-obiektowe/commit/003e5cf145f8c9a2d57cbffb80ba007cb84639da)
+
+[video](https://github.com/user-attachments/assets/67dac8bd-6adb-4d29-94c3-0d82b82c2ebd)
