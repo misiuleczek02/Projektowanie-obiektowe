@@ -112,3 +112,5 @@ Szczegóły w [`Zadanie 6/README.md`](Zadanie%206/README.md) i [`Zadanie 6/ZADAN
 ✅ 4. - Dodać krok z deploymentem aplikacji serwerowej oraz klienckiej na chmurę
 
 ✅ 5. - Dodać uruchomienie regresyjnych testów automatycznych (funkcjonalnych) jako krok w Actions
+
+[coommit 8](https://github.com/misiuleczek02/Projektowanie-obiektowe/commit/91a10d4e52274bb90562792cb2cb91074dfb3af8)
