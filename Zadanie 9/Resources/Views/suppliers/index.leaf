@@ -1,0 +1,34 @@
+#extend("base"):
+#export("content"):
+    <div class="actions">
+        <a class="btn success" href="/suppliers/create">Dodaj dostawcę</a>
+    </div>
+
+    #if(count(suppliers) == 0):
+        <p class="empty">Brak dostawców.</p>
+    #else:
+        <table>
+            <thead>
+                <tr><th>Nazwa</th><th>E-mail</th><th>Miasto</th><th>Produkty</th><th>Akcje</th></tr>
+            </thead>
+            <tbody>
+                #for(supplier in suppliers):
+                    <tr>
+                        <td>#(supplier.name)</td>
+                        <td class="muted">#(supplier.email)</td>
+                        <td>#(supplier.city)</td>
+                        <td><span class="badge">#(supplier.productCount)</span></td>
+                        <td class="actions">
+                            <a class="btn ghost" href="/suppliers/#(supplier.id)">Szczegóły</a>
+                            <a class="btn" href="/suppliers/#(supplier.id)/edit">Edytuj</a>
+                            <form method="post" action="/suppliers/#(supplier.id)/delete" onsubmit="return confirm('Usunąć dostawcę?');">
+                                <button type="submit" class="danger">Usuń</button>
+                            </form>
+                        </td>
+                    </tr>
+                #endfor
+            </tbody>
+        </table>
+    #endif
+#endexport
+#endextend

@@ -1,0 +1,17 @@
+#extend("base"):
+#export("content"):
+    <table>
+        <tbody>
+            <tr><th>Nazwa</th><td>#(product.name)</td></tr>
+            <tr><th>Cena</th><td>#(product.price) zł</td></tr>
+            <tr><th>Ilość</th><td>#(product.quantity)</td></tr>
+            <tr><th>Kategoria</th><td><a href="/categories/#(product.categoryID)">#(product.categoryName)</a></td></tr>
+            <tr><th>Dostawca</th><td>#if(product.supplierName):<a href="/suppliers/#(product.supplierID)">#(product.supplierName)</a>#else:<span class="muted">brak</span>#endif</td></tr>
+        </tbody>
+    </table>
+    <div class="actions" style="margin-top:1rem">
+        <a class="btn" href="/products/#(product.id)/edit">Edytuj</a>
+        <a class="btn ghost" href="/products">← Powrót</a>
+    </div>
+#endexport
+#endextend

@@ -1,0 +1,33 @@
+#extend("base"):
+#export("content"):
+    <table>
+        <tbody>
+            <tr><th>Nazwa</th><td>#(supplier.name)</td></tr>
+            <tr><th>E-mail</th><td>#(supplier.email)</td></tr>
+            <tr><th>Miasto</th><td>#(supplier.city)</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Produkty tego dostawcy (#(supplier.productCount))</h2>
+    #if(count(products) == 0):
+        <p class="empty">Ten dostawca nie ma przypisanych produktów.</p>
+    #else:
+        <table>
+            <thead><tr><th>Nazwa</th><th>Cena</th><th>Kategoria</th></tr></thead>
+            <tbody>
+                #for(product in products):
+                    <tr>
+                        <td><a href="/products/#(product.id)">#(product.name)</a></td>
+                        <td>#(product.price) zł</td>
+                        <td>#(product.categoryName)</td>
+                    </tr>
+                #endfor
+            </tbody>
+        </table>
+    #endif
+    <div class="actions" style="margin-top:1rem">
+        <a class="btn" href="/suppliers/#(supplier.id)/edit">Edytuj</a>
+        <a class="btn ghost" href="/suppliers">← Powrót</a>
+    </div>
+#endexport
+#endextend

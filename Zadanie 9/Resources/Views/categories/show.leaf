@@ -1,0 +1,26 @@
+#extend("base"):
+#export("content"):
+    <p class="muted">#(category.description)</p>
+    <h2>Produkty w tej kategorii (#(category.productCount))</h2>
+    #if(count(products) == 0):
+        <p class="empty">Brak produktów w tej kategorii.</p>
+    #else:
+        <table>
+            <thead><tr><th>Nazwa</th><th>Cena</th><th>Ilość</th></tr></thead>
+            <tbody>
+                #for(product in products):
+                    <tr>
+                        <td><a href="/products/#(product.id)">#(product.name)</a></td>
+                        <td>#(product.price) zł</td>
+                        <td>#(product.quantity)</td>
+                    </tr>
+                #endfor
+            </tbody>
+        </table>
+    #endif
+    <div class="actions" style="margin-top:1rem">
+        <a class="btn" href="/categories/#(category.id)/edit">Edytuj</a>
+        <a class="btn ghost" href="/categories">← Powrót</a>
+    </div>
+#endexport
+#endextend

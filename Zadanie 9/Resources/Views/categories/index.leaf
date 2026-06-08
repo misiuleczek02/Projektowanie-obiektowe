@@ -1,0 +1,33 @@
+#extend("base"):
+#export("content"):
+    <div class="actions">
+        <a class="btn success" href="/categories/create">Dodaj kategorię</a>
+    </div>
+
+    #if(count(categories) == 0):
+        <p class="empty">Brak kategorii.</p>
+    #else:
+        <table>
+            <thead>
+                <tr><th>Nazwa</th><th>Opis</th><th>Produkty</th><th>Akcje</th></tr>
+            </thead>
+            <tbody>
+                #for(category in categories):
+                    <tr>
+                        <td>#(category.name)</td>
+                        <td class="muted">#(category.description)</td>
+                        <td><span class="badge">#(category.productCount)</span></td>
+                        <td class="actions">
+                            <a class="btn ghost" href="/categories/#(category.id)">Szczegóły</a>
+                            <a class="btn" href="/categories/#(category.id)/edit">Edytuj</a>
+                            <form method="post" action="/categories/#(category.id)/delete" onsubmit="return confirm('Usunąć kategorię i jej produkty?');">
+                                <button type="submit" class="danger">Usuń</button>
+                            </form>
+                        </td>
+                    </tr>
+                #endfor
+            </tbody>
+        </table>
+    #endif
+#endexport
+#endextend

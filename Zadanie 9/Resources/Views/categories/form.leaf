@@ -1,0 +1,20 @@
+#extend("base"):
+#export("content"):
+    #if(editing):
+        <form class="card" method="post" action="/categories/#(category.id)/update">
+    #else:
+        <form class="card" method="post" action="/categories">
+    #endif
+        <label for="name">Nazwa</label>
+        <input id="name" name="name" required value="#if(category):#(category.name)#endif">
+
+        <label for="description">Opis</label>
+        <textarea id="description" name="description" rows="3" required>#if(category):#(category.description)#endif</textarea>
+
+        <div class="actions" style="margin-top:1.5rem">
+            <button type="submit" class="success">Zapisz</button>
+            <a class="btn ghost" href="/categories">Anuluj</a>
+        </div>
+    </form>
+#endexport
+#endextend

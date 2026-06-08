@@ -1,0 +1,16 @@
+#extend("base"):
+#export("content"):
+    <p>Witaj w aplikacji demonstracyjnej napisanej w <strong>Vapor</strong> (Swift).</p>
+    <ul>
+        <li>ORM: <strong>Fluent</strong> (PostgreSQL na produkcji / SQLite lokalnie)</li>
+        <li>Silnik szablonów: <strong>Leaf</strong></li>
+        <li>Cache: <strong>Redis</strong> (lista produktów)</li>
+    </ul>
+    <p>Trzy modele z pełnym CRUD oraz relacjami:</p>
+    <div class="actions">
+        <a class="btn" href="/products">Produkty</a>
+        <a class="btn" href="/categories">Kategorie</a>
+        <a class="btn" href="/suppliers">Dostawcy</a>
+    </div>
+#endexport
+#endextend

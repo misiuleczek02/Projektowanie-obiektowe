@@ -112,3 +112,13 @@ Szczegóły w [`Zadanie 6/README.md`](Zadanie%206/README.md) i [`Zadanie 6/ZADAN
 ✅ 4. - Dodać krok z deploymentem aplikacji serwerowej oraz klienckiej na chmurę
 
 ✅ 5. - Dodać uruchomienie regresyjnych testów automatycznych (funkcjonalnych) jako krok w Actions
+
+# Zadanie 9 
+
+✅ 1. -  Należy stworzyć kontroler wraz z modele Produktów zgodny z CRUD w ORM Fluent
+
+✅ 2. - Należy stworzyć szablony w Leaf
+
+✅ 3. -  Należy stworzyć drugi model oraz kontroler Kategorii wraz z relacją
+
+✅ 4. -  Należy wykorzystać Redis do przechowywania danych

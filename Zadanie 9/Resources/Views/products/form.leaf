@@ -1,0 +1,38 @@
+#extend("base"):
+#export("content"):
+    #if(editing):
+        <form class="card" method="post" action="/products/#(product.id)/update">
+    #else:
+        <form class="card" method="post" action="/products">
+    #endif
+        <label for="name">Nazwa</label>
+        <input id="name" name="name" required value="#if(product):#(product.name)#endif">
+
+        <label for="price">Cena (zł)</label>
+        <input id="price" name="price" type="number" step="0.01" min="0" required value="#if(product):#(product.price)#endif">
+
+        <label for="quantity">Ilość</label>
+        <input id="quantity" name="quantity" type="number" min="0" required value="#if(product):#(product.quantity)#endif">
+
+        <label for="categoryID">Kategoria</label>
+        <select id="categoryID" name="categoryID" required>
+            #for(category in categories):
+                <option value="#(category.id)" #if(product):#if(product.categoryID == category.id):selected#endif#endif>#(category.name)</option>
+            #endfor
+        </select>
+
+        <label for="supplierID">Dostawca (opcjonalnie)</label>
+        <select id="supplierID" name="supplierID">
+            <option value="">— brak —</option>
+            #for(supplier in suppliers):
+                <option value="#(supplier.id)" #if(product):#if(product.supplierID == supplier.id):selected#endif#endif>#(supplier.name)</option>
+            #endfor
+        </select>
+
+        <div class="actions" style="margin-top:1.5rem">
+            <button type="submit" class="success">Zapisz</button>
+            <a class="btn ghost" href="/products">Anuluj</a>
+        </div>
+    </form>
+#endexport
+#endextend

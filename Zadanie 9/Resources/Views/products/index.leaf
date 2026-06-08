@@ -1,0 +1,47 @@
+#extend("base"):
+#export("content"):
+    <div class="actions">
+        <a class="btn success" href="/products/create">Dodaj produkt</a>
+        #if(fromCache):
+            <span class="badge cache">źródło: cache Redis</span>
+        #else:
+            <span class="badge db">źródło: baza danych</span>
+        #endif
+    </div>
+
+    #if(count(products) == 0):
+        <p class="empty">Brak produktów. Dodaj pierwszy!</p>
+    #else:
+        <table>
+            <thead>
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Cena</th>
+                    <th>Ilość</th>
+                    <th>Kategoria</th>
+                    <th>Dostawca</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                #for(product in products):
+                    <tr>
+                        <td>#(product.name)</td>
+                        <td>#(product.price) zł</td>
+                        <td>#(product.quantity)</td>
+                        <td>#(product.categoryName)</td>
+                        <td>#if(product.supplierName):#(product.supplierName)#else:<span class="muted">—</span>#endif</td>
+                        <td class="actions">
+                            <a class="btn ghost" href="/products/#(product.id)">Szczegóły</a>
+                            <a class="btn" href="/products/#(product.id)/edit">Edytuj</a>
+                            <form method="post" action="/products/#(product.id)/delete" onsubmit="return confirm('Usunąć produkt?');">
+                                <button type="submit" class="danger">Usuń</button>
+                            </form>
+                        </td>
+                    </tr>
+                #endfor
+            </tbody>
+        </table>
+    #endif
+#endexport
+#endextend

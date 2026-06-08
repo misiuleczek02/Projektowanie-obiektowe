@@ -1,0 +1,16 @@
+{
+  "name": "Zadanie 9 — Sklep Vapor",
+  "description": "Aplikacja Vapor (Swift) z Leaf, Fluent i Redis — CRUD dla 3 modeli.",
+  "keywords": ["vapor", "swift", "leaf", "fluent", "redis"],
+  "stack": "container",
+  "addons": [
+    "heroku-postgresql:essential-0",
+    "heroku-redis:mini"
+  ],
+  "env": {
+    "LOG_LEVEL": {
+      "description": "Poziom logowania aplikacji",
+      "value": "info"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>#(title) — Sklep Vapor</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav>
+        <a href="/">Start</a>
+        <a href="/products">Produkty</a>
+        <a href="/categories">Kategorie</a>
+        <a href="/suppliers">Dostawcy</a>
+    </nav>
+    <main>
+        <h1>#(title)</h1>
+        #import("content")
+    </main>
+    <footer>Zadanie 9 — Vapor + Leaf + Fluent + Redis · Projektowanie obiektowe 2026</footer>
+</body>
+</html>
