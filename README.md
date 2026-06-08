@@ -125,3 +125,5 @@ Szczegóły w [`Zadanie 6/README.md`](Zadanie%206/README.md) i [`Zadanie 6/ZADAN
 ✅ 3. -  Należy stworzyć drugi model oraz kontroler Kategorii wraz z relacją
 
 ✅ 4. -  Należy wykorzystać Redis do przechowywania danych
+
+[commit 9](https://github.com/misiuleczek02/Projektowanie-obiektowe/commit/003e5cf145f8c9a2d57cbffb80ba007cb84639da)
