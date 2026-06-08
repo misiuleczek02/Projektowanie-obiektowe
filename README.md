@@ -85,6 +85,8 @@ Oliwia Majewska
 
 Szczegóły w [`Zadanie 6/README.md`](Zadanie%206/README.md) i [`Zadanie 6/ZADANIE_6_PODSUMOWANIE.md`](Zadanie%206/ZADANIE_6_PODSUMOWANIE.md).
 
+[commit 6](https://github.com/misiuleczek02/Projektowanie-obiektowe/commit/3805a68d460794dbb3c52589812c4216ff050ebe)
+
 # Zadanie 7 
 
 ✅ 1. - Przetestuj formularz rejestracji użytkownika pod kątem walidacji pól obowiązkowych oraz zachowania aplikacji po wprowadzeniu niepoprawnego formatu adresu e-mail.
