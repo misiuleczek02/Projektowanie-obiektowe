@@ -70,3 +70,4 @@ npx playwright install chromium
 $env:FRONTEND_URL = "http://localhost:8080"; $env:BACKEND_URL = "http://localhost:8080"
 npm test
 ```
+# push test
