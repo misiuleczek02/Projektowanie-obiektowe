@@ -13,6 +13,8 @@ Oliwia Majewska
 
 ✅ 5. - Skrypt w bashu do uruchamiania aplikacji w Pascalu via docker
 
+[commit 1](https://github.com/misiuleczek02/Projektowanie-obiektowe/commit/1b5417142145c80718284b93561839aa994ada3f)
+
 # Zadanie 2 Wzorce architektury
 ✅ 1. -  Należy stworzyć jeden model z kontrolerem z produktami, zgodnie z CRUD (JSON)
 
