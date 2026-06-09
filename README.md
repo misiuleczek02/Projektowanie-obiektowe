@@ -60,6 +60,8 @@ Oliwia Majewska
 
 [commit 4](https://github.com/misiuleczek02/Projektowanie-obiektowe/commit/f977015fded2538f6aca5ae6ee50117115fbd063)
 
+[video](https://github.com/user-attachments/assets/33127249-a6a7-43de-b2ae-4f18ec1224cd)
+
 # Zadanie 5 Wzorce behawioralne
 ✅ 1. - W ramach projektu należy stworzyć komponenty Produkty oraz Płatności; komponent Produkty powinien pobierać listę produktów z aplikacji serwerowej, natomiast komponent Płatności powinien wysyłać dane płatności do aplikacji serwerowej.
 
