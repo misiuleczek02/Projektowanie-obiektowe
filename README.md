@@ -15,6 +15,8 @@ Oliwia Majewska
 
 [commit 1](https://github.com/misiuleczek02/Projektowanie-obiektowe/commit/1b5417142145c80718284b93561839aa994ada3f)
 
+[video](https://github.com/user-attachments/assets/ed555355-13de-43b3-ae7b-d6352894fbf5)
+
 # Zadanie 2 Wzorce architektury
 ✅ 1. -  Należy stworzyć jeden model z kontrolerem z produktami, zgodnie z CRUD (JSON)
 
