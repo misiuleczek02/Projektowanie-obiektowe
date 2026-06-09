@@ -45,6 +45,8 @@ Oliwia Majewska
 
 [commit 3](https://github.com/misiuleczek02/Projektowanie-obiektowe/commit/e6ee5bcddc2b3e09d9e22e0b9f798734f2e78370)
 
+[video](https://github.com/user-attachments/assets/438f5801-e013-4742-8b18-6bf0f1da9638)
+
 # Zadanie 4 Wzorce strukturalne
 ✅ 1. - Należy stworzyć aplikację we frameworki echo w j. Go, która będzie miała kontroler Pogody, która pozwala na pobieranie danych o pogodzie (lub akcjach giełdowych)
 
