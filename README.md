@@ -127,6 +127,10 @@ Szczegóły w [`Zadanie 6/README.md`](Zadanie%206/README.md) i [`Zadanie 6/ZADAN
 
 [coommit 8](https://github.com/misiuleczek02/Projektowanie-obiektowe/commit/91a10d4e52274bb90562792cb2cb91074dfb3af8)
 
+// video niepotrzebne, aplikacja wzięta z zadania 7.
+
+[photo](<img width="602" height="293" alt="Image" src="https://github.com/user-attachments/assets/05f7a1c3-91dd-4b48-b34f-de690719a94f" />)
+
 
 # Zadanie 9 
 
