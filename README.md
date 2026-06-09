@@ -111,6 +111,8 @@ Szczegóły w [`Zadanie 6/README.md`](Zadanie%206/README.md) i [`Zadanie 6/ZADAN
 
 [commit 7](https://github.com/misiuleczek02/Projektowanie-obiektowe/commit/6274d68e58ab7682237fd40b059b99004b3ea697)
 
+[video](https://github.com/misiuleczek02/Projektowanie-obiektowe/issues/7#issue-4621203684)
+
 # Zadanie 8
 
 ✅ 1. - Należy stworzyć odpowiednie instancje po stronie chmury na dockerze
