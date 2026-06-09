@@ -75,6 +75,8 @@ Oliwia Majewska
 
 [commit 5](https://github.com/misiuleczek02/Projektowanie-obiektowe/commit/960e37c2692f7e9d8911d1f226a80fba2baa317d)
 
+[video](https://github.com/user-attachments/assets/05a645c8-0c96-4186-b1ad-246589d07a65)
+
 # Zadanie 6 Zapaszki
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=zadanie6_zadanie6&metric=alert_status)](https://sonarcloud.io/dashboard?id=zadanie6_zadanie6)
